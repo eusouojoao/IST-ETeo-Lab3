@@ -1,0 +1,166 @@
+\clearpage
+%//==============================--@--==============================//%
+\subsection*{\underline{3.2} Considere o circuito RLC-série, com frequência de ressonância $\mathbf{f_0 = 60}\ \text{kHz}$ e admita que o valor estimado do coeficiente de auto-indução da bobina é $\mathbf{L = 3.0}\ \text{mH}$.}
+%//==============================--A--==============================//%
+\subsubsection*{(a) Determine o valor da capacidade C tal que o circuito esteja em ressonância à frequência $f_0$ indicada.}
+\label{subsubsec_a}
+\paragraph{Resposta:}
+De acordo com as derivações e conclusões da alínea anterior, podemos imediatamente verificar que $\omega_0 L = \dfrac{1}{\omega_0 C}$. Pelo que, naturalmente, concluímos a expressão em ordem à incógnita:
+
+$$
+C = \frac{1}{\omega_0^2 L} \approx 2.345\ \text{nF}
+$$
+
+%//==============================--B--==============================//%
+\subsubsection*{(b) Trace duas curvas da corrente normalizada, $I_n$, em função da frequência normalizada. Para cada um dos valores de $R=R_S$, determine as frequências das situações de meia potência $f_1$ e $f_2$, e determine, para cada caso, a largura de banda em valores absolutos $\Delta f$. Verifique (10).}
+\paragraph{Resposta:}
+Tendo em conta a frequência de ressonância $f_0 = 60\ \text{kHz}$ e o intervalo de frequências a que nos restringimos, i.e., $f \in \left[20; 90\right]\ \text{kHz}$, segue-se que a frequência normalizada ($f_n = \dfrac{f}{f_0}$) é delimitada no seguinte
+intervalo: $f_n \in \left[\frac{1}{3}; \frac{3}{2}\right]$. 
+
+\def\varQR{(2*pi*1.8)^2}
+\def\varQRR{(2*pi*0.45)^2}
+\def\fnum{-1/(2*2*pi*1.8)+sqrt(1/(4*(2*pi*1.8)^2)+1)}
+\def\fndois{1/(2*2*pi*1.8)+sqrt(1/(4*(2*pi*1.8)^2)+1)}
+\def\fntres{-1/(2*2*pi*0.45)+sqrt(1/(4*(2*pi*0.45)^2)+1)}
+\def\fnquatro{1/(2*2*pi*0.45)+sqrt(1/(4*(2*pi*0.45)^2)+1)}
+\begin{figure}[!h]  
+    \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \resizebox{1\textwidth}{!}{%
+        \begin{tikzpicture}
+            \begin{axis}[
+                axis lines = left,
+                xlabel = {Frequência normalizada ($f_n$)},
+                ylabel = {Corrente normalizada ($I_n$)},
+                grid style=dashed,
+                grid=major
+            ]
+
+            \addplot [
+                domain=(1/3):(3/2), 
+                samples=300, 
+                color=red,
+            ]
+            { 1/sqrt( 1/(\varQR) + (x-1/x)^2 )};
+            
+            \addplot[
+                domain=(1/3):(3/2), 
+                samples=300, 
+                color=magenta,
+                dashed
+            ]
+            {2*pi*1.8/sqrt(2)};
+            
+            \addplot [only marks,mark=*,dashed,color=magenta] coordinates { (\fnum,2*pi*1.8/sqrt(2)} \node[pin=150:{$f_{n1}$}]{} ;
+            
+            \addplot [only marks,mark=*,dashed,color=magenta] coordinates { (\fndois,2*pi*1.8/sqrt(2)};
+            
+            \addplot +[mark=none,color=magenta,dashed] coordinates {(\fnum, 0.5) (\fnum, 2*pi*1.8/sqrt(2))};
+            
+            \addplot +[mark=none,color=magenta,dashed] coordinates {(\fndois, 0.5) (\fndois, 2*pi*1.8/sqrt(2))};
+            
+            %\addlegendentry{}
+            \end{axis}
+        \end{tikzpicture}
+    }%
+    \caption{Caso com $R=R_S=100\ \Omega$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \resizebox{1\textwidth}{!}{%
+        \begin{tikzpicture}
+            \begin{axis}[
+                axis lines = left,
+                xlabel = {Frequência normalizada ($f_n$)},
+                ylabel = {Corrente normalizada ($I_n$)},
+                grid style=dashed,
+                grid=major
+            ]
+
+            \addplot [
+                domain=(1/3):(3/2), 
+                samples=300, 
+                color=blue,
+            ]
+            { 1/sqrt( 1/(\varQRR) + (x-1/x)^2 )};
+            
+            \addplot[
+                domain=(1/3):(3/2), 
+                samples=300, 
+                color=cyan,
+                dashed
+            ]
+            {2*pi*0.45/sqrt(2)};
+            
+            \addplot [only marks,mark=*,dashed,color=cyan] coordinates { (\fntres,2*pi*0.45/sqrt(2)};
+            
+            \addplot [only marks,mark=*,dashed,color=cyan] coordinates { (\fnquatro,2*pi*0.45/sqrt(2)};
+            
+            \addplot +[mark=none,color=cyan,dashed] coordinates {(\fntres, 0.3) (\fntres, 2*pi*0.45/sqrt(2))};
+            
+            \addplot +[mark=none,color=cyan,dashed] coordinates {(\fnquatro, 0.3) (\fnquatro, 2*pi*0.45/sqrt(2))};
+            %\addlegendentry{}
+            \end{axis}
+        \end{tikzpicture}
+    }%
+    \caption{Caso com $R=R_S=400\ \Omega$}
+    \end{subfigure}
+\caption{Curvas de corrente normalizada para os dois valores possíveis da resistência (com os respectivos pontos de meia potência normalizados).} \label{fig:curvas_ressonancia} 
+\end{figure}
+
+$$
+R=100\ \Omega:
+\begin{cases}
+    f_{n1} = 0.956757\\
+    f_{n2} = 1.045186
+\end{cases}
+\implies \Delta f_n = 0.088419 \implies \Delta f = 5305\ \text{Hz}
+$$
+
+$$
+R=400\ \Omega:
+\begin{cases}
+    f_{n1} = 0.838677\\
+    f_{n2} = 1.192354
+\end{cases}
+\implies \Delta f_n = 0.353678 \implies \Delta f = 21220\ \text{Hz}
+$$
+
+$$
+R=100\ \Omega:
+\begin{cases}
+    Q_0 = 11.309734\\
+    \Delta f_n = 0.088419
+\end{cases}
+\land\
+R=400\ \Omega:
+\begin{cases}
+    Q_0 = 2.827433\\
+    \Delta f_n = 0.353678
+\end{cases}
+$$
+
+Pelo que, naturalmente se verifica a relação enunciada $\Delta f_n = \dfrac{1}{Q_0}$.
+
+$$
+R=100\ \Omega:
+\begin{cases}
+    \dfrac{1}{Q_0} = 0.088419\\
+    \Delta f_n = 0.088419
+\end{cases}
+\land\
+R=400\ \Omega:
+\begin{cases}
+    \dfrac{1}{Q_0} = 0.353678\\
+    \Delta f_n = 0.353678
+\end{cases}
+$$
+
+$$\therefore \Delta f_n = \frac{1}{Q_0}$$
+\hfill \ensuremath{\Box}
+%//==============================--C--==============================//%
+\subsubsection*{(c) Para o caso $R_S = 100\ \Omega$, $U_{gef} = 1\ \text{V}$ e tomando $C$ o valor determinado em \hyperref[subsubsec_a]{(a)}, calcule os valores eficazes e desfasagens da corrente $i$ e das tensões no condensador, $u_C$, na bobina, $u_L$, e na resistência, $u_R$, para a frequência de ressonância, $f_0$, bem como para as frequências $f_1$ e $f_2$.}
+%//==============================--D--==============================//%
+\subsubsection*{(d) Para as condições da alínea anterior e para cada uma dessas três frequências trace os correspondentes diagramas vectoriais de tensão.}
+%//==============================--@--==============================//%
