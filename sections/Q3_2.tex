@@ -13,6 +13,7 @@ $$
 
 %//==============================--B--==============================//%
 \subsubsection*{(b) Trace duas curvas da corrente normalizada, $I_n$, em função da frequência normalizada. Para cada um dos valores de $R=R_S$, determine as frequências das situações de meia potência $f_1$ e $f_2$, e determine, para cada caso, a largura de banda em valores absolutos $\Delta f$. Verifique (10).}
+\label{subsubsec_b}
 \paragraph{Resposta:}
 Tendo em conta a frequência de ressonância $f_0 = 60\ \text{kHz}$ e o intervalo de frequências a que nos restringimos, i.e., $f \in \left[20; 90\right]\ \text{kHz}$, segue-se que a frequência normalizada ($f_n = \dfrac{f}{f_0}$) é delimitada no seguinte
 intervalo: $f_n \in \left[\frac{1}{3}; \frac{3}{2}\right]$. 
@@ -38,26 +39,28 @@ intervalo: $f_n \in \left[\frac{1}{3}; \frac{3}{2}\right]$.
 
             \addplot [
                 domain=(1/3):(3/2), 
-                samples=300, 
-                color=red,
+                samples=400, 
+                color=black,
             ]
             { 1/sqrt( 1/(\varQR) + (x-1/x)^2 )};
             
             \addplot[
                 domain=(1/3):(3/2), 
                 samples=300, 
-                color=magenta,
+                color=darkgray,
                 dashed
             ]
             {2*pi*1.8/sqrt(2)};
             
-            \addplot [only marks,mark=*,dashed,color=magenta] coordinates { (\fnum,2*pi*1.8/sqrt(2)} \node[pin=150:{$f_{n1}$}]{} ;
+            \addplot [only marks,mark=*,dashed,color=darkgray] coordinates { (\fnum,2*pi*1.8/sqrt(2)};
+            \node[label={160:{\color{darkgray} $(f_{n1},\frac{Q_0}{\sqrt{2}})$}},inner sep=2pt] at (0.956757,7.997189) {};
             
-            \addplot [only marks,mark=*,dashed,color=magenta] coordinates { (\fndois,2*pi*1.8/sqrt(2)};
+            \addplot [only marks,mark=*,dashed,color=darkgray] coordinates { (\fndois,2*pi*1.8/sqrt(2)};
+            \node[label={55:{\color{darkgray} $(f_{n2},\frac{Q_0}{\sqrt{2}})$}},inner sep=2pt] at (1.045186,7.997189) {};
             
-            \addplot +[mark=none,color=magenta,dashed] coordinates {(\fnum, 0.5) (\fnum, 2*pi*1.8/sqrt(2))};
+            \addplot +[mark=none,color=darkgray,dashed] coordinates {(\fnum, 0.5) (\fnum, 2*pi*1.8)};
             
-            \addplot +[mark=none,color=magenta,dashed] coordinates {(\fndois, 0.5) (\fndois, 2*pi*1.8/sqrt(2))};
+            \addplot +[mark=none,color=darkgray,dashed] coordinates {(\fndois, 0.5) (\fndois, 2*pi*1.8)};
             
             %\addlegendentry{}
             \end{axis}
@@ -80,26 +83,28 @@ intervalo: $f_n \in \left[\frac{1}{3}; \frac{3}{2}\right]$.
 
             \addplot [
                 domain=(1/3):(3/2), 
-                samples=300, 
-                color=blue,
+                samples=400, 
+                color=black,
             ]
             { 1/sqrt( 1/(\varQRR) + (x-1/x)^2 )};
             
             \addplot[
                 domain=(1/3):(3/2), 
                 samples=300, 
-                color=cyan,
+                color=darkgray,
                 dashed
             ]
             {2*pi*0.45/sqrt(2)};
             
-            \addplot [only marks,mark=*,dashed,color=cyan] coordinates { (\fntres,2*pi*0.45/sqrt(2)};
+            \addplot [only marks,mark=*,dashed,color=darkgray] coordinates { (\fntres,2*pi*0.45/sqrt(2)};
+            \node[label={160:{\color{darkgray} $(f_{n1},\frac{Q_0}{\sqrt{2}})$}},circle,inner sep=2pt] at (0.838677,1.999297) {};
+
+            \addplot [only marks,mark=*,dashed,color=darkgray] coordinates { (\fnquatro,2*pi*0.45/sqrt(2)};
+            \node[label={45:{\color{darkgray} $(f_{n2},\frac{Q_0}{\sqrt{2}})$}},circle,inner sep=2pt] at (1.192354,1.999297) {};
             
-            \addplot [only marks,mark=*,dashed,color=cyan] coordinates { (\fnquatro,2*pi*0.45/sqrt(2)};
+            \addplot +[mark=none,color=darkgray,dashed] coordinates {(\fntres, 0.3) (\fntres, 2*pi*0.45)};
             
-            \addplot +[mark=none,color=cyan,dashed] coordinates {(\fntres, 0.3) (\fntres, 2*pi*0.45/sqrt(2))};
-            
-            \addplot +[mark=none,color=cyan,dashed] coordinates {(\fnquatro, 0.3) (\fnquatro, 2*pi*0.45/sqrt(2))};
+            \addplot +[mark=none,color=darkgray,dashed] coordinates {(\fnquatro, 0.3) (\fnquatro, 2*pi*0.45)};
             %\addlegendentry{}
             \end{axis}
         \end{tikzpicture}
@@ -126,6 +131,8 @@ R=400\ \Omega:
 \end{cases}
 \implies \Delta f_n = 0.353678 \implies \Delta f = 21220\ \text{Hz}
 $$
+
+Nas situações distintas observa-se:
 
 $$
 R=100\ \Omega:
@@ -161,6 +168,163 @@ $$\therefore \Delta f_n = \frac{1}{Q_0}$$
 \hfill \ensuremath{\Box}
 %//==============================--C--==============================//%
 \subsubsection*{(c) Para o caso $R_S = 100\ \Omega$, $U_{gef} = 1\ \text{V}$ e tomando $C$ o valor determinado em \hyperref[subsubsec_a]{(a)}, calcule os valores eficazes e desfasagens da corrente $i$ e das tensões no condensador, $u_C$, na bobina, $u_L$, e na resistência, $u_R$, para a frequência de ressonância, $f_0$, bem como para as frequências $f_1$ e $f_2$.}
+\label{subsubsec_c}
+\paragraph{Resposta:}
+Por aplicação direta da Lei de Indução, obtemos as seguintes relações cruciais à análise:
+
+\begin{equation}
+    \label{eq1}
+    \begin{cases}
+        u_G = u_R + u_L + u_C = iR + L\dfrac{di}{dt} + \dfrac{1}{C}\int i\,dt\\
+        \bar{U}_G = \bar{U}_R + \bar{U}_L + \bar{U}_C = \bar{I}R + j\omega L\bar{I} + \dfrac{1}{j\omega C}\bar{I}
+    \end{cases}
+\end{equation}
+
+Salientando novamente, da \hyperref[subsection3_1]{alínea \underline{3.1}}, a impedância equivalente observada em ressonância é puramente resistiva para o circuito RLC-série, pelo que este é o caso mais trivial:
+
+$$
+f_0 :
+\begin{cases}
+\bar{Z}_{eq} = R + j(\omega_0 L - \frac{1}{\omega_0 C}) = 100\ \Omega \implies \bar{I} = \dfrac{\bar{U}_G}{\bar{Z}_{eq}} = \dfrac{U_{Gef}\sqrt{2}\ e^{j0}}{R} = \dfrac{\sqrt{2}}{100}e^{j0}}\ \text{A}\\
+\bar{U}_R = \bar{I}R = \sqrt{2}\ e^{j0}\ \text{V}\\
+\bar{U}_L = j\omega_0 L \bar{I} = 11.310\sqrt{2}\ e^{j\frac{\pi}{2}}\ \text{V}\\
+\bar{U}_C = \dfrac{1}{j\omega_0 C}\bar{I} = 11.310\sqrt{2}\ e^{-j\frac{\pi}{2}}\ \text{V}
+\end{cases}
+$$
+
+Para as seguintes frequências, $f_1$ e $f_2$, o procedimento será o mesmo, no entanto, note-se que a impedância equivalente já \textbf{não será} puramente resistiva, o que se traduz numa corrente $i$ com fase diferente da de $u_G$. Da alínea \hyperref[subsubsec_b]{\underline{3.2} (b)} temos:
+
+$$
+\begin{cases}
+    f_{n1} = 0.956757\\
+    f_{n2} = 1.045186
+\end{cases}
+\implies
+\begin{cases}
+    f_1 = 57.405\ \text{kHz}\\
+    f_2 = 62.711\ \text{kHz}
+\end{cases}
+\implies
+\begin{cases}
+    \omega_1 = 360.891\ \text{krad\ $s^{-1}$}\\
+    \omega_2 = 394.025\ \text{krad\ $s^{-1}$}
+\end{cases}
+$$
+
+\clearpage
+Deste modo, juntamente com as ferramentas de \hyperref[eq1]{(1)}, rapidamente chegamos a:
+
+$$
+f_1 :
+\begin{cases}
+    \bar{Z}_{eq} = 140.685\ e^{-j 0.780}\ \Omega\\
+    \bar{I} = \dfrac{\bar{U}_G}{\bar{Z}_{eq}} =  \dfrac{\sqrt{2}}{140.685}e^{j0.780}\ \text{A}\\
+    \bar{U}_R = \bar{I}R = 0.710\sqrt{2}\ e^{j0.780}\ \text{V}\\
+    \bar{U}_L = j\omega_1 L \bar{I} = 7.696\sqrt{2}\ e^{j2.351}\ \text{V}\\
+    \bar{U}_C = \dfrac{1}{j\omega_1 C}\bar{I} = 8.399\sqrt{2}\ e^{-j0.791}\ \text{V}
+\end{cases}
+f_2 :
+\begin{cases}
+    \bar{Z}_{eq} = 141.287\ e^{j0.784}\ \Omega\\    
+    \bar{I} = \dfrac{\bar{U}_G}{\bar{Z}_{eq}} = \dfrac{\sqrt{2}}{141.287}e^{j0.784}\ \text{A}\\
+    \bar{U}_R = \bar{I}R = 0.708\sqrt{2}\ e^{j0.784}\ \text{V}\\
+    \bar{U}_L = j\omega_1 L \bar{I} = 8.366\sqrt{2}\ e^{j2.355}\ \text{V}\\
+    \bar{U}_C = \dfrac{1}{j\omega_1 C}\bar{I} = 7.660\sqrt{2}\ e^{-j0.787}\ \text{V}
+\end{cases}
+$$
+
+Sintéticamente, em tabela:
+
+\begin{table}[ht]
+    \centering
+    \caption{Valores eficazes e desfasagens das grandezas consideras.}
+    \label{tab1}
+    \begin{tabular}{SSSSSSSSS} \toprule
+        $f$ & $I_{ef}/\text{mA}$ & $\alpha_I/^{\circ}$ & $U_{Ref}/\text{V}$ & $\alpha_R/^{\circ}$ & $U_{Lef}/\text{V}$ & $\alpha_L/^{\circ}$ & $U_{Cef}/\text{V}$ & $\alpha_C/^{\circ}$ \\ \midrule
+        $f_0$  & 10 & 0 & 1 & 0 & 11.310 & 90 & 11.310 & -90\\
+        $f_1$  & 7.108 & 44.690 & 0.710 & 55.690 & 7.696 & 134.702 & 8.399 & -45.320\\
+        $f_2$ & 7.078 & 44.920 & 0.708 & 44.920 & 8.366 & 135.932 & 7.660 & -45.092\\ \bottomrule
+    \end{tabular}
+\end{table}
 %//==============================--D--==============================//%
 \subsubsection*{(d) Para as condições da alínea anterior e para cada uma dessas três frequências trace os correspondentes diagramas vectoriais de tensão.}
+\paragraph{Resposta:}
+Nas condições da \hyperref[subsubsec_c]{alínea precedente}, temos os seguintes diagramas vectoriais:
+
+%\iffalse
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[>=latex]
+        \draw[style=help lines] (0,0) (3,2);
+
+        \coordinate (vec1) at (300:1.5); 
+        \coordinate (vec2) at (30:2.5);
+        \coordinate (vec3) at (0:2.5);
+        \coordinate (vec4) at (90:2);
+        \coordinate (vec5) at (270:2);
+        \coordinate (vec6) at (180:2);
+
+        \draw[->,thick,black] (0,0) -- (vec1) node[right] {$I$};
+        \draw[->,thick,black] (0,0) -- (vec2) node[below right] {$V$};
+    \draw[->,thick,black] (0,0) -- (vec3) node [below] {$\mathbb{R}e$};
+        \draw[->,thick,black] (0,0) -- (vec4) node [left] {$\mathbb{I}m$};
+        \draw[->,thick,black] (0,0) -- (vec5);
+        \draw[->,thick,black] (0,0) -- (vec6);
+
+        \draw [red, thick] (1.0,0) arc [start angle=0, end angle=30, radius=1cm]
+            node [midway, right] {$\phi$};    
+
+        \draw [blue, thick] (0.5,0) arc [start angle=0, end angle=-60, radius=0.5cm]
+            node [midway, right] {$\phi-\ang{90}$};    
+    \end{tikzpicture}\\
+    \begin{tikzpicture}[>=latex]
+        \draw[style=help lines] (0,0) (3,2);
+
+        \coordinate (vec1) at (300:1.5); 
+        \coordinate (vec2) at (30:2.5);
+        \coordinate (vec3) at (0:2.5);
+        \coordinate (vec4) at (90:2);
+        \coordinate (vec5) at (270:2);
+        \coordinate (vec6) at (180:2);
+
+        \draw[->,thick,black] (0,0) -- (vec1) node[right] {$I$};
+        \draw[->,thick,black] (0,0) -- (vec2) node[below right] {$V$};
+        \draw[->,thick,black] (0,0) -- (vec3) node [below] {$\mathbb{R}e$};
+        \draw[->,thick,black] (0,0) -- (vec4) node [left] {$\mathbb{I}m$};
+        \draw[->,thick,black] (0,0) -- (vec5);
+        \draw[->,thick,black] (0,0) -- (vec6);
+
+        \draw [red, thick] (1.0,0) arc [start angle=0, end angle=30, radius=1cm]
+            node [midway, right] {$\phi$};    
+
+        \draw [blue, thick] (0.5,0) arc [start angle=0, end angle=-60, radius=0.5cm]
+            node [midway, right] {$\phi-\ang{90}$};    
+    \end{tikzpicture}
+    \qquad % <----------------- SPACE BETWEEN PICTURES
+    \begin{tikzpicture}[>=latex]
+        \draw[style=help lines] (0,0) (3,2);
+
+        \coordinate (vec1) at (300:1.5); 
+        \coordinate (vec2) at (30:2.5);
+        \coordinate (vec3) at (0:2.5);
+        \coordinate (vec4) at (90:2);
+        \coordinate (vec5) at (270:2);
+        \coordinate (vec6) at (180:2);
+
+        \draw[->,thick,black] (0,0) -- (vec1) node[right] {$I$};
+        \draw[->,thick,black] (0,0) -- (vec2) node[below right] {$V$};
+        \draw[->,thick,black] (0,0) -- (vec3) node [below] {$\mathbb{R}e$};
+        \draw[->,thick,black] (0,0) -- (vec4) node [left] {$\mathbb{I}m$};
+        \draw[->,thick,black] (0,0) -- (vec5);
+        \draw[->,thick,black] (0,0) -- (vec6);
+
+        \draw [red, thick] (1.0,0) arc [start angle=0, end angle=30, radius=1cm]
+            node [midway, right] {$\phi$};    
+
+        \draw [blue, thick] (0.5,0) arc [start angle=0, end angle=-60, radius=0.5cm]
+            node [midway, right] {$\phi-\ang{90}$};    
+    \end{tikzpicture}
+\caption{Diagramas vectoriais de tensão correspondentes (\text{\color{red}WIP! ilustrativo}).}
+\end{figure}
+%\fi
 %//==============================--@--==============================//%

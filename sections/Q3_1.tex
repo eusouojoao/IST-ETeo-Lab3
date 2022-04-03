@@ -1,6 +1,7 @@
 %\clearpage
 %//==============================--@--==============================//%
 \subsection*{\underline{3.1} Verifique que o factor de qualidade $Q_0$ num circuito RLC-série é a sobretensão de $U_{Lef}$ ou $U_{Cef}$ em relação à tensão aplicada $U_{Gef}$ na situação de ressonância.}
+\label{subsection3_1}
 \paragraph{Resposta:}
 O factor de qualidade $Q_0$  é uma característica de um circuito ressonante (como é o caso do circuito RLC-série) que mede a qualidade dos componentes reactivos. Este factor indica-nos a relação entre a energia armazenada e a energia dissipada:
 
@@ -10,7 +11,7 @@ Note-se que as perdas de energia por ciclo nada mais são do que a potência mé
 
 $$ Q_0 = 2\pi \cdot \frac{\text{(Energia máxima armazenada)}}{\text{(Potência média dissipada)}\cdot T_0} = \omega_0 \cdot \frac{\text{(Energia máxima armazenada)}}{\text{(Potência média dissipada)}}$$
 
-Do Teorema de Poynting complexo é-nos trivial deduzir que no estado de ressonância, a potência reactiva é \underline{nula}. Isto indica que tanto a bobina como o condensador estão a produzir a mesma energia, mas como estão em oposição de fase, anulam-se. Sendo assim, olhamos para o circuito como puramente resistivo. (Observa-se que $\vert \bar{Z}_{eq}\vert = R \land \vert \bar{I}\vert = \vert\bar{I}\vert_{MAX} = \frac{U_{G}}{R}$).
+Do Teorema de Poynting complexo é-nos trivial deduzir que no estado de ressonância, a potência reactiva é \underline{nula}. Isto indica-nos que tanto a bobina como o condensador estão a produzir a mesma energia, mas como estão em oposição de fase, anulam-se. Sendo assim, olhamos para o circuito como puramente resistivo. (Observa-se que $\vert \bar{Z}_{eq}\vert = R \land \vert \bar{I}\vert = \vert\bar{I}\vert_{MAX} = \frac{U_{G}}{R}$).
 
 $$ 
 \implies Q_0 = \omega_o \frac{(W_m)_{MAX}}{(p_J)_{av}} = \omega_0 \frac{\frac{1}{2}LI_{ef}^2}{R\ (\frac{I_{ef}}{\sqrt{2}})^2} = \frac{\omega_0 L}{R}\\ 
@@ -34,7 +35,7 @@ U_C = I \mathcal{X}_C = \frac{I}{\omega_0 C} = \frac{1}{\omega_0 RC}\cdot U_G = 
 \end{dcases*}
 $$
 
-Trivialmente concluímos que em ressonância: 
+Justaposto, trivialmente concluímos que em ressonância: 
 $$ 
 Q_0 = \dfrac{U_L}{U_G} = \dfrac{U_C}{U_G} \iff Q_0 = \dfrac{U_{Lef}}{U_{Gef}} = \dfrac{U_{Cef}}{U_{Gef}}
 $$
