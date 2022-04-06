@@ -111,14 +111,18 @@
 \pgfplotsset{compat=1.18}
 \begin{document}
 
-\pagenumbering{gobble}
-\maketitle
-\newpage
-\pagenumbering{arabic}
-
-\section*{Questões}
-\input{sections/Q3_1}
-\input{sections/Q3_2}
-\input{sections/Q3_3}
+    %% title page
+    \pagenumbering{gobble}
+    \maketitle
+    %% body
+    \newpage
+    \pagenumbering{arabic}
+    \section*{Questões}
+    \input{sections/Q3_1}
+    \input{sections/Q3_2}
+    \input{sections/Q3_3}
+    %% attachments
+    \newpage
+    \input{sections/anexo}
 
 \end{document}

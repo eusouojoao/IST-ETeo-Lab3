@@ -185,7 +185,7 @@ Salientando novamente, da \hyperref[subsection3_1]{alínea \underline{3.1}}, a i
 $$
 f_0 :
 \begin{cases}
-\bar{Z}_{eq} = R + j(\omega_0 L - \frac{1}{\omega_0 C}) = 100\ \Omega \implies \bar{I} = \dfrac{\bar{U}_G}{\bar{Z}_{eq}} = \dfrac{U_{Gef}\sqrt{2}\ e^{j0}}{R} = \dfrac{\sqrt{2}}{100}e^{j0}}\ \text{A}\\
+\bar{Z}_{eq} = R + j(\omega_0 L - \frac{1}{\omega_0 C}) = 100\ \Omega \implies \bar{I} = \dfrac{\bar{U}_G}{\bar{Z}_{eq}} = \dfrac{U_{Gef}\sqrt{2}\ e^{j0}}{R} = \dfrac{\sqrt{2}}{100} e^{j0}\ \text{A}\\
 \bar{U}_R = \bar{I}R = \sqrt{2}\ e^{j0}\ \text{V}\\
 \bar{U}_L = j\omega_0 L \bar{I} = 11.310\sqrt{2}\ e^{j\frac{\pi}{2}}\ \text{V}\\
 \bar{U}_C = \dfrac{1}{j\omega_0 C}\bar{I} = 11.310\sqrt{2}\ e^{-j\frac{\pi}{2}}\ \text{V}
@@ -226,10 +226,10 @@ f_1 :
 f_2 :
 \begin{cases}
     \bar{Z}_{eq} = 141.287\ e^{j0.784}\ \Omega\\    
-    \bar{I} = \dfrac{\bar{U}_G}{\bar{Z}_{eq}} = \dfrac{\sqrt{2}}{141.287}e^{j0.784}\ \text{A}\\
-    \bar{U}_R = \bar{I}R = 0.708\sqrt{2}\ e^{j0.784}\ \text{V}\\
-    \bar{U}_L = j\omega_1 L \bar{I} = 8.366\sqrt{2}\ e^{j2.355}\ \text{V}\\
-    \bar{U}_C = \dfrac{1}{j\omega_1 C}\bar{I} = 7.660\sqrt{2}\ e^{-j0.787}\ \text{V}
+    \bar{I} = \dfrac{\bar{U}_G}{\bar{Z}_{eq}} = \dfrac{\sqrt{2}}{141.287}e^{-j0.784}\ \text{A}\\
+    \bar{U}_R = \bar{I}R = 0.708\sqrt{2}\ e^{-j0.784}\ \text{V}\\
+    \bar{U}_L = j\omega_2 L \bar{I} = 8.366\sqrt{2}\ e^{j0.787}\ \text{V}\\
+    \bar{U}_C = \dfrac{1}{j\omega_2 C}\bar{I} = 7.660\sqrt{2}\ e^{-j2.355}\ \text{V}
 \end{cases}
 $$
 
@@ -239,92 +239,60 @@ Sintéticamente, em tabela:
     \centering
     \caption{Valores eficazes e desfasagens das grandezas consideras.}
     \label{tab1}
-    \begin{tabular}{SSSSSSSSS} \toprule
+    \begin{tabular}{SSSSSSSSS}
+        \toprule
         $f$ & $I_{ef}/\text{mA}$ & $\alpha_I/^{\circ}$ & $U_{Ref}/\text{V}$ & $\alpha_R/^{\circ}$ & $U_{Lef}/\text{V}$ & $\alpha_L/^{\circ}$ & $U_{Cef}/\text{V}$ & $\alpha_C/^{\circ}$ \\ \midrule
         $f_0$  & 10 & 0 & 1 & 0 & 11.310 & 90 & 11.310 & -90\\
-        $f_1$  & 7.108 & 44.690 & 0.710 & 55.690 & 7.696 & 134.702 & 8.399 & -45.320\\
-        $f_2$ & 7.078 & 44.920 & 0.708 & 44.920 & 8.366 & 135.932 & 7.660 & -45.092\\ \bottomrule
+        $f_1$  & 7.108 & 44.690 & 0.710 & 44.690 & 7.696 & 134.702 & 8.399 & -45.320\\
+        $f_2$ & 7.078 & -44.920 & 0.708 & -44.920 & 8.366 & 45.092 & 7.660 & -135.932\\ \bottomrule
     \end{tabular}
 \end{table}
 %//==============================--D--==============================//%
 \subsubsection*{(d) Para as condições da alínea anterior e para cada uma dessas três frequências trace os correspondentes diagramas vectoriais de tensão.}
 \paragraph{Resposta:}
-Nas condições da \hyperref[subsubsec_c]{alínea precedente}, temos os seguintes diagramas vectoriais:
+Apresentam-se, em seguida, os diagramas vectoriais como enunciado:
 
 %\iffalse
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[>=latex]
-        \draw[style=help lines] (0,0) (3,2);
-
-        \coordinate (vec1) at (300:1.5); 
-        \coordinate (vec2) at (30:2.5);
-        \coordinate (vec3) at (0:2.5);
-        \coordinate (vec4) at (90:2);
-        \coordinate (vec5) at (270:2);
-        \coordinate (vec6) at (180:2);
-
-        \draw[->,thick,black] (0,0) -- (vec1) node[right] {$I$};
-        \draw[->,thick,black] (0,0) -- (vec2) node[below right] {$V$};
-    \draw[->,thick,black] (0,0) -- (vec3) node [below] {$\mathbb{R}e$};
-        \draw[->,thick,black] (0,0) -- (vec4) node [left] {$\mathbb{I}m$};
-        \draw[->,thick,black] (0,0) -- (vec5);
-        \draw[->,thick,black] (0,0) -- (vec6);
-
-        \draw [red, thick] (1.0,0) arc [start angle=0, end angle=30, radius=1cm]
-            node [midway, right] {$\phi$};    
-
-        \draw [blue, thick] (0.5,0) arc [start angle=0, end angle=-60, radius=0.5cm]
-            node [midway, right] {$\phi-\ang{90}$};    
+    \node[text width=1cm] at (1.8,1.5) {$f_0$};
+        %{
+            \draw[thin,gray!40] (-2,-2) grid (2,2);
+            \draw[<->,thick,black] (-2,0) -- (2,0) node [right] {$\mathbb{R}e$};
+            \draw[<->,thick,black] (0,-2) -- (0,2) node [above] {$\mathbb{I}m$};
+        %} plano imaginário
+        \draw[line width=1pt,blue,-stealth](0.5,0)--(0.5,2) node[anchor=south west]{$\boldsymbol{\bar{U}_L}$};
+        \draw[line width=1pt,green,-stealth](0.5,2)--(0.5,0) node[anchor=south west]{$\boldsymbol{\bar{U}_C}$}; 
+        \draw[line width=1pt,red,-stealth](0,0)--(0.5,0) node[anchor=north west]{$\boldsymbol{\bar{U}_R}$}; 
+        \draw[line width=1pt,gray,-stealth](0,0)--(0.5,0) node[anchor=north, xshift=-0.15cm]{$\boldsymbol{\bar{U}_G}$};
     \end{tikzpicture}\\
     \begin{tikzpicture}[>=latex]
-        \draw[style=help lines] (0,0) (3,2);
-
-        \coordinate (vec1) at (300:1.5); 
-        \coordinate (vec2) at (30:2.5);
-        \coordinate (vec3) at (0:2.5);
-        \coordinate (vec4) at (90:2);
-        \coordinate (vec5) at (270:2);
-        \coordinate (vec6) at (180:2);
-
-        \draw[->,thick,black] (0,0) -- (vec1) node[right] {$I$};
-        \draw[->,thick,black] (0,0) -- (vec2) node[below right] {$V$};
-        \draw[->,thick,black] (0,0) -- (vec3) node [below] {$\mathbb{R}e$};
-        \draw[->,thick,black] (0,0) -- (vec4) node [left] {$\mathbb{I}m$};
-        \draw[->,thick,black] (0,0) -- (vec5);
-        \draw[->,thick,black] (0,0) -- (vec6);
-
-        \draw [red, thick] (1.0,0) arc [start angle=0, end angle=30, radius=1cm]
-            node [midway, right] {$\phi$};    
-
-        \draw [blue, thick] (0.5,0) arc [start angle=0, end angle=-60, radius=0.5cm]
-            node [midway, right] {$\phi-\ang{90}$};    
+    \node[text width=1cm] at (1.8,1.5) {$f_1$};
+        %{
+            \draw[thin,gray!40] (-2,-2) grid (2,2);
+            \draw[<->,thick,black] (-2,0) -- (2,0) node [right] {$\mathbb{R}e$};
+            \draw[<->,thick,black] (0,-2) -- (0,2) node [above] {$\mathbb{I}m$};
+        %} plano imaginário
+        \draw[line width=1pt,green,-stealth](-0.75,1.25)--(0.5,0) node[anchor=south west]{$\boldsymbol{\bar{U}_C}$};
+        \draw[line width=1pt,blue,-stealth](45.7:0.36)--(-0.75,1.25) node[anchor=west]{$\boldsymbol{\bar{U}_L}$}; 
+        \draw[line width=1pt,red,-stealth](0,0)--(45.7:0.36) node[left,xshift=-0.1cm]{$\boldsymbol{\bar{U}_R}$}; 
+        \draw[line width=1pt,gray,-stealth](0,0)--(0.5,0) node[anchor=north]{$\boldsymbol{\bar{U}_G}$};
     \end{tikzpicture}
-    \qquad % <----------------- SPACE BETWEEN PICTURES
+    \qquad
     \begin{tikzpicture}[>=latex]
-        \draw[style=help lines] (0,0) (3,2);
-
-        \coordinate (vec1) at (300:1.5); 
-        \coordinate (vec2) at (30:2.5);
-        \coordinate (vec3) at (0:2.5);
-        \coordinate (vec4) at (90:2);
-        \coordinate (vec5) at (270:2);
-        \coordinate (vec6) at (180:2);
-
-        \draw[->,thick,black] (0,0) -- (vec1) node[right] {$I$};
-        \draw[->,thick,black] (0,0) -- (vec2) node[below right] {$V$};
-        \draw[->,thick,black] (0,0) -- (vec3) node [below] {$\mathbb{R}e$};
-        \draw[->,thick,black] (0,0) -- (vec4) node [left] {$\mathbb{I}m$};
-        \draw[->,thick,black] (0,0) -- (vec5);
-        \draw[->,thick,black] (0,0) -- (vec6);
-
-        \draw [red, thick] (1.0,0) arc [start angle=0, end angle=30, radius=1cm]
-            node [midway, right] {$\phi$};    
-
-        \draw [blue, thick] (0.5,0) arc [start angle=0, end angle=-60, radius=0.5cm]
-            node [midway, right] {$\phi-\ang{90}$};    
+    \node[text width=1cm] at (1.8,1.5) {$f_2$};
+        %{
+            \draw[thin,gray!40] (-2,-2) grid (2,2);
+            \draw[<->,thick,black] (-2,0) -- (2,0) node [right] {$\mathbb{R}e$};
+            \draw[<->,thick,black] (0,-2) -- (0,2) node [above] {$\mathbb{I}m$};
+        %} plano imaginário
+        \draw[line width=1pt,blue,-stealth](-0.75,-1.25)--(0.5,0) node[anchor=north west]{$\boldsymbol{\bar{U}_L}$}; 
+        \draw[line width=1pt,green,-stealth](-44.9:0.36)--(-0.75,-1.25) node[anchor=east]{$\boldsymbol{\bar{U}_C}$};
+        \draw[line width=1pt,red,-stealth](0,0)--(-44.9:0.36) node[left,xshift=-0.1cm]{$\boldsymbol{\bar{U}_R}$}; 
+        \draw[line width=1pt,gray,-stealth](0,0)--(0.5,0) node[anchor=south]{$\boldsymbol{\bar{U}_G}$};
     \end{tikzpicture}
-\caption{Diagramas vectoriais de tensão correspondentes (\text{\color{red}WIP! ilustrativo}).}
+    \caption{Diagramas vectoriais de tensão para $f_0$, $f_1$ e $f_2$.}
 \end{figure}
 %\fi
 %//==============================--@--==============================//%
